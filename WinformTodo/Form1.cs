@@ -10,9 +10,9 @@ namespace WinformTodo
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // where we handle the add event
-            Todo myTodo = new Todo(txtTaskDescription.Text, new DateTime());
+            Todo myTodo = new Todo(txtTaskDescription.Text, DateTime.Parse(txtDueDate.Text));
 
-            MessageBox mb
+            MessageBox.Show(myTodo.ToString());
 
         }
     }
