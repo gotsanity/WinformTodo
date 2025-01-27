@@ -37,12 +37,14 @@
             txtTaskDescription = new TextBox();
             gbTaskList = new GroupBox();
             lvTaskList = new ListView();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             gbTaskList.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnClear);
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(lblDueDate);
@@ -64,6 +66,7 @@
             btnClear.TabIndex = 5;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
@@ -126,6 +129,15 @@
             lvTaskList.TabIndex = 0;
             lvTaskList.UseCompatibleStateImageBehavior = false;
             // 
+            // button1
+            // 
+            button1.Location = new Point(27, 76);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 6;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -152,5 +164,6 @@
         private Button btnClear;
         private GroupBox gbTaskList;
         private ListView lvTaskList;
+        private Button button1;
     }
 }
