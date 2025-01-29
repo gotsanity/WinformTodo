@@ -14,6 +14,22 @@ namespace WinformTodo
         public DateTime DueDate { get; set; }
         public bool IsDone { get; set; }
 
+        public string GetStatus()
+        {
+            string status = "";
+
+            if (IsDone)
+            {
+                status = "Status: Complete";
+            }
+            else
+            {
+                status = "Status: Incomplete";
+            }
+
+            return status;
+        }
+
         public Todo()
         {
             
@@ -30,7 +46,7 @@ namespace WinformTodo
 
         public override string? ToString()
         {
-            return $"{Id} - {DueDate} - {TaskDescription}";
+            return $"{Id} - {DueDate} - {TaskDescription} - { GetStatus() }";
         }
     }
 }
