@@ -56,6 +56,7 @@ namespace WinformTodo
         {
             // clear the contents of the list box
             lbTaskList.Items.Clear();
+            // added cats
 
             // transform the list
             var list = TaskList
