@@ -59,7 +59,7 @@ namespace WinformTodo
 
             // transform the list
             var list = TaskList
-                .Where(t => t.IsDone == false)
+                //.Where(t => t.IsDone == false)
                 .OrderBy(t => t.DueDate)
                 .ToList();
 
@@ -90,6 +90,39 @@ namespace WinformTodo
             if (e.KeyChar == 13)
             {
                 submitForm(sender, e);
+            }
+        }
+
+        private void lbTaskList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show($"Selected Index is: {lbTaskList.SelectedIndex}");
+
+            int selectedIndex = lbTaskList.SelectedIndex;
+            string selectedItem = (string)lbTaskList.SelectedItem;
+
+            if (selectedIndex == -1)
+            {
+                return;
+            }
+
+            if (selectedItem == null)
+            {
+                MessageBox.Show("No item selected at the index.");
+                return;
+            }
+
+            // STRING FORMAT: # - 01-01-2025 - description - status: complete
+
+            int id = Int32.Parse(selectedItem.Split(" - ")[0]);
+
+            // find the item in the list with the matching id, toggle its complete status
+            var todo = TaskList.Find(t => t.Id == id);
+
+            if (todo != null)
+            {
+                todo.IsDone = !todo.IsDone;
+
+                UpdateListBox();
             }
         }
     }
